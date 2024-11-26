@@ -48,7 +48,8 @@ def get_flask_app() -> Flask:
     def update_relevant_configurations(request: Request) -> None:
         relevant_config_processors = get_relevant_config_processors(request)
 
-        # TODO - handle errors when updating configuration (missing attrs etc.)
+        # TODO - handle errors when updating configuration (failed write in
+        #  file etc.)
         for config_processor in relevant_config_processors:
             config_processor.update_configuration(request)
 

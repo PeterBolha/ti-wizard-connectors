@@ -9,7 +9,6 @@ class CpclConfigProcessor(ConfigProcessor):
     def __init__(self, config):
         super().__init__(config)
 
-    # TODO add validations for mandatory fields
     def get_saml_sp_cpcl(self, data) -> Dict[str, str]:
         return {
             "name": data.get("name", ""),

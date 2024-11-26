@@ -1,0 +1,41 @@
+flask_settings:
+  # OPTIONAL - host IP of the flask app - defaults to 0.0.0.0 if absent
+  host: 0.0.0.0
+  # OPTIONAL - port of the flask app - defaults to 5000 if absent
+  port: 5000
+
+shared_settings:
+  # REQUIRED - shared secret with the Django backend to validate the incoming webhook calls
+  webhook_secret: shared_secret
+
+processor_specific_settings:
+  satosa_processor:
+    type: SATOSA
+    # OPTIONAL - list of remote entities observed by this processor identified by their <id_hash>
+    # If no filters are provided, all incoming entity changes will be processed the processor
+    filters:
+      - target_id_hash
+    # REQUIRED - way of saving the processed config files
+    version_manager:
+      type: LOCAL
+      config_folder_path: "/tmp/ti_wizard_configs"
+      config_file_name: "satosa_json_cfg"
+      config_file_format: JSON
+
+  cpcl_yaml_processor:
+    type: CPCL
+    filters:
+      - target_id_hash
+    version_manager:
+      type: LOCAL
+      config_folder_path: "/tmp/ti_wizard_configs"
+      config_file_name: "cpcl_yaml_cfg"
+      config_file_format: YAML
+
+  cpcl_json_processor:
+    type: CPCL
+    version_manager:
+      type: LOCAL
+      config_folder_path: "/tmp/ti_wizard_configs"
+      config_file_name: "cpcl_json_cfg"
+      config_file_format: JSON

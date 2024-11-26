@@ -26,13 +26,15 @@ def get_flask_app() -> Flask:
     signature_validator = SignatureValidator(processors_cfg)
     config_processors = config_processors_initializer.get_processors()
 
-    def get_relevant_config_processors(request: Request) -> List[ConfigProcessor]:
+    def get_relevant_config_processors(
+            request: Request,
+    ) -> List[ConfigProcessor]:
         received_hash_id = request.json.get("object", {}).get("id_hash")
         relevant_config_processors = []
         for config_processor in config_processors:
             observed_entity_filters = config_processor.observed_entity_filters
-            # special case where no entity filters are configured -> config_processor is relevant
-            # for all entities
+            # special case where no entity filters are configured ->
+            # config_processor is relevant for all entities
             if not observed_entity_filters:
                 relevant_config_processors.append(config_processor)
                 continue
@@ -54,7 +56,8 @@ def get_flask_app() -> Flask:
     def remote_entity_update():
         if not signature_validator.has_valid_signature(request):
             return Response(
-                "Invalid signature on received data", status=HTTPStatus.UNAUTHORIZED
+                "Invalid signature on received data",
+                status=HTTPStatus.UNAUTHORIZED,
             )
 
         validator_result = validate_data(request)

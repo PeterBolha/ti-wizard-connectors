@@ -10,12 +10,18 @@ class ConfigVersionManagerInitializer:
 
     def get_config_version_manager(self) -> ConfigVersionManager:
         try:
-            version_manager_type_in_cfg = self.__VERSION_MANAGER_CFG.get("type")
-            version_manager_type = ConfigVersionManagerType[version_manager_type_in_cfg]
+            version_manager_type_in_cfg = self.__VERSION_MANAGER_CFG.get(
+                "type"
+            )
+            version_manager_type = ConfigVersionManagerType[
+                version_manager_type_in_cfg
+            ]
         except KeyError:
             raise ValueError(
-                f"Invalid version manager type '{version_manager_type_in_cfg}' in configuration. "
-                f"Allowed values are: {', '.join([e.name for e in ConfigVersionManagerType])}"
+                f"Invalid version manager type '"
+                f"{version_manager_type_in_cfg}' in configuration. "
+                f"Allowed values are: "
+                f"{', '.join([e.name for e in ConfigVersionManagerType])}"
             )
 
         match version_manager_type:

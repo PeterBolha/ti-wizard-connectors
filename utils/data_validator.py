@@ -1,8 +1,7 @@
 import re
 
 from flask import Request
-from marshmallow import (Schema, ValidationError, fields, validate,
-                         validates_schema)
+from marshmallow import Schema, ValidationError, fields, validates_schema
 from marshmallow.validate import OneOf, Regexp
 
 from enums.entity_type import EntityType
@@ -24,8 +23,8 @@ class BaseSchema(Schema):
         validate=Regexp(
             SHA_256_HASH_REGEX,
             error="Invalid id_hash format. Must be a "
-            "64-character hexadecimal string ("
-            "SHA256 hash).",
+                  "64-character hexadecimal string ("
+                  "SHA256 hash).",
         ),
     )
 
@@ -55,7 +54,8 @@ class OidcRpSchema(BaseSchema):
         # Either dynamic_registration or client_secret must be provided
         if not (dynamic_registration or client_secret):
             raise ValidationError(
-                "You must specify either 'dynamic_registration' or 'client_secret'.",
+                "You must specify either 'dynamic_registration' or "
+                "'client_secret'.",
                 field_names=["dynamic_registration", "client_secret"],
             )
 
@@ -67,12 +67,12 @@ class ValidationResult:
 
 
 def validate_data(request: Request) -> ValidationResult:
-    r = request.data
     data = request.json.get("object")
 
     if not data:
         return ValidationResult(
-            has_valid_data=False, message="Request must contain remote entity data."
+            has_valid_data=False,
+            message="Request must contain remote entity data.",
         )
 
     try:
@@ -83,13 +83,13 @@ def validate_data(request: Request) -> ValidationResult:
         match entity_type:
             case "SAML_SP" | "SAML_IDP":
                 saml_schema = SamlSchema()
-                result = saml_schema.load(data)
+                saml_schema.load(data)
             case "OIDC_RP":
                 oidc_rp_schema = OidcRpSchema()
-                result = oidc_rp_schema.load(data)
+                oidc_rp_schema.load(data)
             case "OIDC_OP":
                 oidc_op_schema = OidcOpSchema()
-                result = oidc_op_schema.load(data)
+                oidc_op_schema.load(data)
     except ValidationError as err:
         return ValidationResult(has_valid_data=False, message=err.messages)
 

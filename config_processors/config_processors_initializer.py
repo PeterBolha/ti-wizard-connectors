@@ -23,8 +23,10 @@ class ConfigProcessorsInitializer:
                 processor_type = ConfigProcessorType[processor_type_in_cfg]
             except KeyError:
                 raise ValueError(
-                    f"Invalid config processor type '{processor_type_in_cfg}' in configuration. "
-                    f"Allowed values are: {', '.join([e.name for e in ConfigProcessorType])}"
+                    f"Invalid config processor type '{processor_type_in_cfg}' "
+                    f"in configuration. "
+                    f"Allowed values are: "
+                    f"{', '.join([e.name for e in ConfigProcessorType])}"
                 )
 
             processor_specific_config = {**shared_settings, **cfg_values}

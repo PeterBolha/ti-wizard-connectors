@@ -1,7 +1,6 @@
 from config_version_managers.config_version_manager import ConfigVersionManager
-from config_version_managers.local_config_version_manager import (
-    LocalConfigVersionManager,
-)
+from config_version_managers.local_config_version_manager import \
+    LocalConfigVersionManager
 from enums.config_version_manager_type import ConfigVersionManagerType
 
 

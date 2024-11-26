@@ -1,8 +1,9 @@
 import re
 
 from flask import Request
-from marshmallow import Schema, fields, ValidationError, validate, validates_schema
-from marshmallow.validate import Regexp, OneOf
+from marshmallow import (Schema, ValidationError, fields, validate,
+                         validates_schema)
+from marshmallow.validate import OneOf, Regexp
 
 from enums.entity_type import EntityType
 

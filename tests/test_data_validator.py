@@ -1,6 +1,6 @@
 import unittest
 
-from flask import Request, Flask
+from flask import Flask, Request
 from flask.testing import EnvironBuilder
 
 from utils.data_validator import validate_data

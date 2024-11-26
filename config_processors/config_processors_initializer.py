@@ -1,9 +1,9 @@
 from typing import List
 
-from config_processors.ConfigProcessor import ConfigProcessor
-from config_processors.CpclConfigProcessor import CpclConfigProcessor
-from config_processors.SatosaConfigProcessor import SatosaConfigProcessor
-from enums.ConfigProcessorType import ConfigProcessorType
+from config_processors.config_processor import ConfigProcessor
+from config_processors.cpcl_config_processor import CpclConfigProcessor
+from config_processors.satosa_config_processor import SatosaConfigProcessor
+from enums.config_processor_type import ConfigProcessorType
 
 
 class ConfigProcessorsInitializer:

@@ -2,7 +2,7 @@ from typing import Any, Dict
 
 from flask import Request
 
-from config_processors.ConfigProcessor import ConfigProcessor
+from config_processors.config_processor import ConfigProcessor
 
 
 class CpclConfigProcessor(ConfigProcessor):

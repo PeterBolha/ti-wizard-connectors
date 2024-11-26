@@ -3,7 +3,7 @@ import unittest
 from flask import Request, Flask
 from flask.testing import EnvironBuilder
 
-from utils.DataValidator import validate_data
+from utils.data_validator import validate_data
 
 FULL_VALID_SAML_DATA = {
     "id": 1,

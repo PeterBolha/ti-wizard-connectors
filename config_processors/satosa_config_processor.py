@@ -2,7 +2,7 @@ from typing import Any
 
 from flask import Request
 
-from config_processors.ConfigProcessor import ConfigProcessor
+from config_processors.config_processor import ConfigProcessor
 
 
 class SatosaConfigProcessor(ConfigProcessor):

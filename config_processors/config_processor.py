@@ -3,7 +3,7 @@ from typing import Any
 
 from flask import Request
 
-from config_version_managers.ConfigVersionManagerInitializer import (
+from config_version_managers.config_version_manager_initializer import (
     ConfigVersionManagerInitializer,
 )
 

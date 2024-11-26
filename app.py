@@ -3,11 +3,11 @@ from typing import List
 
 from flask import Flask, request, Response, Request
 
-from config_processors.ConfigProcessor import ConfigProcessor
-from config_processors.ConfigProcessorsInitializer import ConfigProcessorsInitializer
-from utils import DataValidator
-from utils.ConfigLoader import ConfigLoader
-from utils.SignatureValidator import SignatureValidator
+from config_processors.config_processor import ConfigProcessor
+from config_processors.config_processors_initializer import ConfigProcessorsInitializer
+from utils.data_validator import validate_data
+from utils.config_loader import ConfigLoader
+from utils.signature_validator import SignatureValidator
 
 
 def set_flask_config_options(app: Flask, app_cfg) -> None:
@@ -56,7 +56,7 @@ def get_flask_app() -> Flask:
                 "Invalid signature on received data", status=HTTPStatus.UNAUTHORIZED
             )
 
-        validator_result = DataValidator.validate_data(request)
+        validator_result = validate_data(request)
         if not validator_result.has_valid_data:
             return Response(
                 f"Invalid data: {validator_result.message}",

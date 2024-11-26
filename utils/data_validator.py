@@ -4,7 +4,7 @@ from flask import Request
 from marshmallow import Schema, fields, ValidationError, validate, validates_schema
 from marshmallow.validate import Regexp, OneOf
 
-from enums.EntityType import EntityType
+from enums.entity_type import EntityType
 
 entity_types = [e.name for e in EntityType]
 SHA_256_HASH_REGEX = re.compile(r"^[A-Fa-f0-9]{64}$")

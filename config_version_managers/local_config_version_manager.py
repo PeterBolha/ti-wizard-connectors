@@ -6,8 +6,8 @@ from typing import Any
 
 import yaml
 
-from config_version_managers.ConfigVersionManager import ConfigVersionManager
-from enums.ConfigFileFormat import ConfigFileFormat
+from config_version_managers.config_version_manager import ConfigVersionManager
+from enums.config_file_format import ConfigFileFormat
 
 
 class LocalConfigVersionManager(ConfigVersionManager):

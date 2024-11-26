@@ -2,14 +2,13 @@ from typing import Any, Dict
 
 from flask import Request
 
-from config_processors.ConfigProcessor import ConfigProcessor
+from config_processors.config_processor import ConfigProcessor
 
 
 class CpclConfigProcessor(ConfigProcessor):
     def __init__(self, config):
         super().__init__(config)
 
-    # TODO add validations for mandatory fields
     def get_saml_sp_cpcl(self, data) -> Dict[str, str]:
         return {
             "name": data.get("name", ""),

@@ -1,5 +1,5 @@
 import os
-from typing import Dict, Any
+from typing import Any, Dict
 
 import yaml
 
@@ -15,7 +15,9 @@ class ConfigLoader:
                 f"{ConfigLoader.__GLOBAL_CFG_PATH}'"
             )
 
-        with open(ConfigLoader.__GLOBAL_CFG_PATH, "r", encoding="utf-8") as yml_cfg:
+        with open(
+            ConfigLoader.__GLOBAL_CFG_PATH, "r", encoding="utf-8"
+        ) as yml_cfg:
             loaded_cfg = yaml.safe_load(yml_cfg)
 
         return loaded_cfg

@@ -1,9 +1,9 @@
 from typing import List
 
-from config_processors.ConfigProcessor import ConfigProcessor
-from config_processors.CpclConfigProcessor import CpclConfigProcessor
-from config_processors.SatosaConfigProcessor import SatosaConfigProcessor
-from enums.ConfigProcessorType import ConfigProcessorType
+from config_processors.config_processor import ConfigProcessor
+from config_processors.cpcl_config_processor import CpclConfigProcessor
+from config_processors.satosa_config_processor import SatosaConfigProcessor
+from enums.config_processor_type import ConfigProcessorType
 
 
 class ConfigProcessorsInitializer:
@@ -23,8 +23,10 @@ class ConfigProcessorsInitializer:
                 processor_type = ConfigProcessorType[processor_type_in_cfg]
             except KeyError:
                 raise ValueError(
-                    f"Invalid config processor type '{processor_type_in_cfg}' in configuration. "
-                    f"Allowed values are: {', '.join([e.name for e in ConfigProcessorType])}"
+                    f"Invalid config processor type '{processor_type_in_cfg}' "
+                    f"in configuration. "
+                    f"Allowed values are: "
+                    f"{', '.join([e.name for e in ConfigProcessorType])}"
                 )
 
             processor_specific_config = {**shared_settings, **cfg_values}

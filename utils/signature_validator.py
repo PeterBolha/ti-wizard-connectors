@@ -24,8 +24,6 @@ class SignatureValidator:
                 msg=digest_payload,
                 digestmod=sha256,
             )
-            has_valid_signature &= hmac.compare_digest(
-                digest.hexdigest(), signature
-            )
+            has_valid_signature &= hmac.compare_digest(digest.hexdigest(), signature)
 
         return has_valid_signature

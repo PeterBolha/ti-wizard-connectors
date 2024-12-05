@@ -8,8 +8,7 @@ from dulwich.errors import NotGitRepository
 from dulwich.porcelain import status
 from dulwich.repo import Repo
 
-from config_version_managers.file_config_version_manager import \
-    FileConfigVersionManager
+from config_version_managers.file_config_version_manager import FileConfigVersionManager
 
 
 class GitConfigVersionManager(FileConfigVersionManager):
@@ -44,10 +43,10 @@ class GitConfigVersionManager(FileConfigVersionManager):
             item for sublist in repo_status.staged.values() for item in sublist
         ]
         changed_files = (
-                staged_items
-                + repo_status.unstaged  # Staged for commit
-                + repo_status.untracked
-        # Modified but not staged  # Untracked files
+            staged_items
+            + repo_status.unstaged  # Staged for commit
+            + repo_status.untracked
+            # Modified but not staged  # Untracked files
         )
 
         file_name = os.path.basename(file_path)

@@ -6,7 +6,7 @@ flask_settings:
 
 shared_settings:
   # REQUIRED - shared secret with the Django backend to validate the incoming webhook calls
-  webhook_secret: shared_secret
+  webhook_secret: "secret"
 
 processor_specific_settings:
   satosa_processor:
@@ -14,18 +14,18 @@ processor_specific_settings:
     # OPTIONAL - list of remote entities observed by this processor identified by their <id_hash>
     # If no filters are provided, all incoming entity changes will be processed the processor
     filters:
-      - target_id_hash
+      - "ee17d43ddcbf50090b137e83569dea155a5916e212f5d760c223b76ae8ed2de2"
     # REQUIRED - way of saving the processed config files
     version_manager:
       type: LOCAL
       config_folder_path: "/tmp/ti_wizard_configs"
-      config_file_name: "satosa_json_cfg"
+      config_file_name: "satosa_cfg"
       config_file_format: JSON
 
   cpcl_yaml_processor:
     type: CPCL
     filters:
-      - target_id_hash
+      - "b943ca408d3a2a4f13b9db8db10afe4c9bf0e323173f498ac188590b0843d8d9"
     version_manager:
       type: LOCAL
       config_folder_path: "/tmp/ti_wizard_configs"
@@ -37,5 +37,20 @@ processor_specific_settings:
     version_manager:
       type: LOCAL
       config_folder_path: "/tmp/ti_wizard_configs"
+      config_file_name: "cpcl_json_cfg"
+      config_file_format: JSON
+
+  cpcl_git_json_processor:
+    type: CPCL
+    filters:
+      - "b943ca408d3a2a4f13b9db8db10afe4c9bf0e323173f498ac188590b0843d8d9"
+    version_manager:
+      type: GIT
+      git_repo: "https://github.com/username/configuration-repository.git"
+      git_repo_folder_path: "/tmp/ti-wizard-cfg-versioning"
+      git_branch_name: "configs"
+      committer: "JohnDoe <johndoe@mail.com>"
+      git_username: "JohnDoe"
+      git_token: "git_access_token"
       config_file_name: "cpcl_json_cfg"
       config_file_format: JSON

@@ -4,9 +4,8 @@ from typing import List
 from flask import Flask, Request, Response, request
 
 from config_processors.config_processor import ConfigProcessor
-from config_processors.config_processors_initializer import (
-    ConfigProcessorsInitializer,
-)
+from config_processors.config_processors_initializer import \
+    ConfigProcessorsInitializer
 from utils.config_loader import ConfigLoader
 from utils.data_validator import validate_data
 from utils.signature_validator import SignatureValidator

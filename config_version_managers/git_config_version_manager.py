@@ -8,9 +8,8 @@ from dulwich.errors import NotGitRepository
 from dulwich.porcelain import status
 from dulwich.repo import Repo
 
-from config_version_managers.file_config_version_manager import (
-    FileConfigVersionManager,
-)
+from config_version_managers.file_config_version_manager import \
+    FileConfigVersionManager
 
 
 class GitConfigVersionManager(FileConfigVersionManager):

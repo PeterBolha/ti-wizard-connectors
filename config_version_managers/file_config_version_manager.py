@@ -1,12 +1,10 @@
 import json
 from abc import abstractmethod
-from typing import Dict, Any
+from typing import Any, Dict
 
 import yaml
 
-from config_version_managers.config_version_manager import (
-    ConfigVersionManager,
-)
+from config_version_managers.config_version_manager import ConfigVersionManager
 from enums.config_file_format import ConfigFileFormat
 
 

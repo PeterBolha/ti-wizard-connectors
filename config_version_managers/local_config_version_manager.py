@@ -3,9 +3,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from config_version_managers.file_config_version_manager import (
-    FileConfigVersionManager,
-)
+from config_version_managers.file_config_version_manager import \
+    FileConfigVersionManager
 from enums.config_file_format import ConfigFileFormat
 
 

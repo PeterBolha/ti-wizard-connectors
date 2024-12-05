@@ -54,7 +54,8 @@ class OidcRpSchema(BaseSchema):
         # Either dynamic_registration or client_secret must be provided
         if not (dynamic_registration or client_secret):
             raise ValidationError(
-                "You must specify either 'dynamic_registration' or " "'client_secret'.",
+                "You must specify either 'dynamic_registration' or "
+                "'client_secret'.",
                 field_names=["dynamic_registration", "client_secret"],
             )
 

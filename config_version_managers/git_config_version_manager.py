@@ -8,7 +8,9 @@ from dulwich.errors import NotGitRepository
 from dulwich.porcelain import status
 from dulwich.repo import Repo
 
-from config_version_managers.file_config_version_manager import FileConfigVersionManager
+from config_version_managers.file_config_version_manager import (
+    FileConfigVersionManager,
+)
 
 
 class GitConfigVersionManager(FileConfigVersionManager):
@@ -97,7 +99,9 @@ class GitConfigVersionManager(FileConfigVersionManager):
         )
         repo = self.get_repo()
 
-        saved_config_file_path = self.save_config_to_file(cfg_file_path, config)
+        saved_config_file_path = self.save_config_to_file(
+            cfg_file_path, config
+        )
 
         if self.has_file_changed(repo, saved_config_file_path):
             self.publish_file_to_git(repo, saved_config_file_path)

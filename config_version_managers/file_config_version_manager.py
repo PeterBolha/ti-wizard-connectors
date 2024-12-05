@@ -4,13 +4,17 @@ from typing import Dict, Any
 
 import yaml
 
-from config_version_managers.config_version_manager import ConfigVersionManager
+from config_version_managers.config_version_manager import (
+    ConfigVersionManager,
+)
 from enums.config_file_format import ConfigFileFormat
 
 
 class FileConfigVersionManager(ConfigVersionManager):
     def __init__(self, file_version_manager_cfg):
-        self._CONFIG_FILE_NAME = file_version_manager_cfg.get("config_file_name")
+        self._CONFIG_FILE_NAME = file_version_manager_cfg.get(
+            "config_file_name"
+        )
 
         try:
             config_file_format_in_cfg = file_version_manager_cfg.get(
@@ -42,7 +46,9 @@ class FileConfigVersionManager(ConfigVersionManager):
     def save_config_yaml(self, config, file_path: str) -> str:
         file_path += ".yaml"
         with open(file_path, "w") as yaml_file:
-            yaml.dump(config, yaml_file, default_flow_style=False, sort_keys=False)
+            yaml.dump(
+                config, yaml_file, default_flow_style=False, sort_keys=False
+            )
         return file_path
 
     def save_config_to_file(

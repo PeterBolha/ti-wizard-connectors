@@ -23,8 +23,8 @@ class BaseSchema(Schema):
         validate=Regexp(
             SHA_256_HASH_REGEX,
             error="Invalid id_hash format. Must be a "
-                  "64-character hexadecimal string ("
-                  "SHA256 hash).",
+            "64-character hexadecimal string ("
+            "SHA256 hash).",
         ),
     )
 

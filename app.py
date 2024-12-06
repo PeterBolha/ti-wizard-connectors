@@ -27,7 +27,7 @@ def get_flask_app() -> Flask:
     config_processors = config_processors_initializer.get_processors()
 
     def get_relevant_config_processors(
-            request: Request,
+        request: Request,
     ) -> List[ConfigProcessor]:
         received_hash_id = request.json.get("object", {}).get("id_hash")
         relevant_config_processors = []

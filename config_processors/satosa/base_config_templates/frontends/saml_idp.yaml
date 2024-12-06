@@ -7,8 +7,8 @@ config:
 
   endpoints:
     single_sign_on_service:
-      'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST': sso/post
-      'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect': sso/redirect
+      "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST": sso/post
+      "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect": sso/redirect
 
   # If configured and not false or empty the common domain cookie _saml_idp will be set
   # with or have appended the IdP used for authentication. The default is not to set the
@@ -22,11 +22,33 @@ config:
   enable_metadata_reload: no
 
   idp_config:
-    organization: {display_name: Example Identities, name: Example Identities Org., url: 'http://www.example.com'}
+    organization:
+      {
+        display_name: Example Identities,
+        name: Example Identities Org.,
+        url: "http://www.example.com",
+      }
     contact_person:
-    - {contact_type: technical, email_address: 'mailto:technical@example.com', given_name: Technical}
-    - {contact_type: support, email_address: 'mailto:support@example.com', given_name: Support}
-    - {contact_type: other, email_address: 'mailto:security@example.com', given_name: Security, extension_attributes: {'xmlns:remd': 'http://refeds.org/metadata', 'remd:contactType': 'http://refeds.org/metadata/contactType/security'}}
+      - {
+          contact_type: technical,
+          email_address: "mailto:technical@example.com",
+          given_name: Technical,
+        }
+      - {
+          contact_type: support,
+          email_address: "mailto:support@example.com",
+          given_name: Support,
+        }
+      - {
+          contact_type: other,
+          email_address: "mailto:security@example.com",
+          given_name: Security,
+          extension_attributes:
+            {
+              "xmlns:remd": "http://refeds.org/metadata",
+              "remd:contactType": "http://refeds.org/metadata/contactType/security",
+            },
+        }
     key_file: frontend.key
     cert_file: frontend.crt
     metadata:
@@ -61,12 +83,16 @@ config:
             text: "http://idp.logo.url/"
             width: "100"
             height: "100"
-        name_id_format: ['urn:oasis:names:tc:SAML:2.0:nameid-format:persistent', 'urn:oasis:names:tc:SAML:2.0:nameid-format:transient']
+        name_id_format:
+          [
+            "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
+            "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+          ]
         policy:
           default:
             attribute_restrictions: null
             fail_on_missing_requested: false
-            lifetime: {minutes: 15}
+            lifetime: { minutes: 15 }
             name_form: urn:oasis:names:tc:SAML:2.0:attrname-format:uri
             encrypt_assertion: false
             encrypted_advice_attributes: false

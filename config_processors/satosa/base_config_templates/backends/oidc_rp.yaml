@@ -17,7 +17,8 @@ config:
   entity_info:
     contact_person:
       - contact_type: "technical"
-        email_address: ["technical_test@example.com", "support_test@example.com"]
+        email_address:
+          ["technical_test@example.com", "support_test@example.com"]
         given_name: "Test"
         sur_name: "OP"
       - contact_type: "support"
@@ -25,15 +26,15 @@ config:
         given_name: "Support_test"
     organization:
       display_name:
-      - ["OP Identities", "en"]
+        - ["OP Identities", "en"]
       name:
-      - ["En test-OP", "se"]
-      - ["A test OP", "en"]
+        - ["En test-OP", "se"]
+        - ["A test OP", "en"]
       url:
-      - ["http://www.example.com", "en"]
-      - ["http://www.example.se", "se"]
+        - ["http://www.example.com", "en"]
+        - ["http://www.example.se", "se"]
     ui_info:
       description:
-      - ["This is a test OP", "en"]
+        - ["This is a test OP", "en"]
       display_name:
-      - ["OP - TEST", "en"]
+        - ["OP - TEST", "en"]

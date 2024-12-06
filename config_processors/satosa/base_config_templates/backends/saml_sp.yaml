@@ -23,11 +23,33 @@ config:
     description: "SP Description"
     key_file: backend.key
     cert_file: backend.crt
-    organization: {display_name: Example Identities, name: Example Identities Org., url: 'http://www.example.com'}
+    organization:
+      {
+        display_name: Example Identities,
+        name: Example Identities Org.,
+        url: "http://www.example.com",
+      }
     contact_person:
-    - {contact_type: technical, email_address: 'mailto:technical@example.com', given_name: Technical}
-    - {contact_type: support, email_address: 'mailto:support@example.com', given_name: Support}
-    - {contact_type: other, email_address: 'mailto:security@example.com', given_name: Security, extension_attributes: {'xmlns:remd': 'http://refeds.org/metadata', 'remd:contactType': 'http://refeds.org/metadata/contactType/security'}}
+      - {
+          contact_type: technical,
+          email_address: "mailto:technical@example.com",
+          given_name: Technical,
+        }
+      - {
+          contact_type: support,
+          email_address: "mailto:support@example.com",
+          given_name: Support,
+        }
+      - {
+          contact_type: other,
+          email_address: "mailto:security@example.com",
+          given_name: Security,
+          extension_attributes:
+            {
+              "xmlns:remd": "http://refeds.org/metadata",
+              "remd:contactType": "http://refeds.org/metadata/contactType/security",
+            },
+        }
 
     metadata:
       local: [idp.xml]
@@ -63,9 +85,15 @@ config:
         allow_unsolicited: true
         endpoints:
           assertion_consumer_service:
-          - [<base_url>/<name>/acs/post, 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST']
+            - [
+                <base_url>/<name>/acs/post,
+                "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST",
+              ]
           discovery_response:
-          - [<base_url>/<name>/disco, 'urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol']
+            - [
+                <base_url>/<name>/disco,
+                "urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol",
+              ]
 
         # name_id_format: a list of strings to set the <NameIDFormat> element in SP metadata
         # name_id_policy_format: a string to set the Format attribute in the NameIDPolicy element

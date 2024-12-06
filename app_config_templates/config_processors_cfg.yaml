@@ -20,7 +20,7 @@ processor_specific_settings:
       type: LOCAL
       config_folder_path: "/tmp/ti_wizard_configs"
       config_file_name: "satosa_cfg"
-      config_file_format: JSON
+      config_file_format: YAML
 
   cpcl_yaml_processor:
     type: CPCL

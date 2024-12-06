@@ -9,7 +9,9 @@ shared_settings:
   webhook_secret: "secret"
 
 processor_specific_settings:
+  # REQUIRED - name of the config processor (serves as a label, does not affect functionality)
   satosa_processor:
+    # REQUIRED - specifies the target technology stack (config processor used)
     type: SATOSA
     # OPTIONAL - list of remote entities observed by this processor identified by their <id_hash>
     # If no filters are provided, all incoming entity changes will be processed the processor
